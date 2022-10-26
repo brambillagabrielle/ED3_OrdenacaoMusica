@@ -9,12 +9,13 @@ import (
 
 func main() {
 
+	inicio := time.Now()
+
 	dados := arq.LerJson(`arquivosmusicas/arquivosjson/songs7JSONvector.txt`)
 	fmt.Println("Leu o JSON")
 
-	inicio := time.Now()
-	dados = ord.QuickSort(dados, 0, len(dados)-1)
-	//dados = ord.CountingSort(dados)
+	// dados = ord.QuickSort(dados, 0, len(dados)-1)
+	dados = ord.CountingSort(dados)
 	fmt.Println("Ordenou as notas")
 	tempoOrd := time.Since(inicio)
 
