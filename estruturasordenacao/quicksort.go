@@ -6,20 +6,20 @@ import (
 
 func particionar(dados []arq.Dado, inicio, fim int) ([]arq.Dado, int) {
 
-	pivo := dados[fim].Ordem
-	i := inicio
+	aux := dados[fim].Ordem
+	pivo := inicio
 
 	for j := inicio; j < fim; j++ {
 
-		if dados[j].Ordem <= pivo {
-			dados[i], dados[j] = dados[j], dados[i]
-			i++
+		if dados[j].Ordem <= aux {
+			dados[pivo], dados[j] = dados[j], dados[pivo]
+			pivo++
 		}
 
 	}
 
-	dados[i], dados[fim] = dados[fim], dados[i]
-	return dados, i
+	dados[pivo], dados[fim] = dados[fim], dados[pivo]
+	return dados, pivo
 
 }
 
