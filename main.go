@@ -14,8 +14,8 @@ func main() {
 	dados := arq.LerJson(`arquivosmusicas/arquivosjson/songs7JSONvector.txt`)
 	fmt.Println("Leu o JSON")
 
-	// dados = ord.QuickSort(dados, 0, len(dados)-1)
-	dados = ord.CountingSort(dados)
+	ord.QuickSort(dados, 0, len(dados)-1)
+	// dados = ord.CountingSort(dados)
 	fmt.Println("Ordenou as notas")
 	tempoOrd := time.Since(inicio)
 

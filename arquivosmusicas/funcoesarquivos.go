@@ -23,7 +23,7 @@ func verifErro(erro error) {
 
 func LerJson(arquivo string) []Dado {
 
-	dados := []Dado{}
+	dados := make([]Dado, 0)
 
 	arqJson, erro := os.Open(arquivo)
 	verifErro(erro)

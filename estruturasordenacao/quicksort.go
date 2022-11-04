@@ -4,7 +4,7 @@ import (
 	arq "OrdenacaoMusica/arquivosmusicas"
 )
 
-func particionar(dados []arq.Dado, inicio, fim int) ([]arq.Dado, int) {
+func particionar(dados []arq.Dado, inicio, fim int) int {
 
 	aux := dados[fim].Ordem
 	pivo := inicio
@@ -19,18 +19,16 @@ func particionar(dados []arq.Dado, inicio, fim int) ([]arq.Dado, int) {
 	}
 
 	dados[pivo], dados[fim] = dados[fim], dados[pivo]
-	return dados, pivo
+	return pivo
 
 }
 
-func QuickSort(dados []arq.Dado, inicio, fim int) []arq.Dado {
+func QuickSort(dados []arq.Dado, inicio, fim int) {
 
 	if inicio < fim {
-		dados, pivo := particionar(dados, inicio, fim)
+		pivo := particionar(dados, inicio, fim)
 		QuickSort(dados, inicio, pivo-1)
 		QuickSort(dados, pivo+1, fim)
 	}
-
-	return dados
 
 }
